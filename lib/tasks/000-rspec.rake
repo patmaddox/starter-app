@@ -1,6 +1,10 @@
+require "fileutils"
+
 desc "Check out the rspec and rspec-rails plugins to vendor/plugins"
 task :fetch_rspec do
   plugins_dir = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'vendor', 'plugins'))
+
+  FileUtils.mkdir_p(plugins_dir) unless File.directory?(plugins_dir)
 
   new_rspec = false
   %w(rspec rspec-rails).each do |plugin|
