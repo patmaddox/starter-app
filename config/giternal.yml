@@ -1,0 +1,6 @@
+rspec:
+  repo: git://github.com/dchelimsky/rspec.git
+  path: vendor/plugins
+rspec-rails:
+  repo: git://github.com/dchelimsky/rspec-rails.git
+  path: vendor/plugins
