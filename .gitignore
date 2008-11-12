@@ -1,8 +1,5 @@
 log/*
 tmp/*
 *~
-vendor/plugins/cucumber
-vendor/plugins/rspec
-vendor/plugins/rspec-rails
 config/database.yml
 db/*.sqlite3

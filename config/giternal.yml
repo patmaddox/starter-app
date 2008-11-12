@@ -1,9 +1,0 @@
-cucumber:
-  repo: git://github.com/aslakhellesoy/cucumber.git
-  path: vendor/plugins
-rspec:
-  repo: git://github.com/dchelimsky/rspec.git
-  path: vendor/plugins
-rspec-rails:
-  repo: git://github.com/dchelimsky/rspec-rails.git
-  path: vendor/plugins
