@@ -4,7 +4,7 @@ namespace :bootstrap do
   desc "Create required directories"
   task :create_dirs do
     Dir.chdir(RAILS_ROOT) do
-      FileUtils.mkdir('log') unless File.directory?('log')
+      %w(log db).each {|dir| FileUtils.mkdir(dir) unless File.directory?(dir) }
     end
   end
 
