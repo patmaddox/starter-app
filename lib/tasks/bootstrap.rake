@@ -17,22 +17,22 @@ namespace :bootstrap do
 
   desc "Install required gems with geminstaller"
   task :install_gems do
-    if `gem list geminstaller`.include?('geminstaller')
-      puts "Installing required gems"
-      Dir.chdir(RAILS_ROOT) { `sudo geminstaller` }
-    else
-      raise "No geminstaller found.  Install with 'sudo gem install geminstaller'"
+    `sudo gem install geminstaller` unless `gem list geminstaller`.include?('geminstaller')
+    puts "Installing required gems"
+    Dir.chdir(RAILS_ROOT) do
+      `sudo geminstaller`
+      `sudo geminstaller -c config/geminstaller_test.yml` if File.exist?('config/geminstaller_test.yml')
     end
   end
 
   desc "Generate rspec"
   task :generate_rspec do
-    Dir.chdir(RAILS_ROOT) { `ruby script/generate rspec` }
+    Dir.chdir(RAILS_ROOT) { `ruby script/generate rspec` unless File.directory?('spec') }
   end
 
   desc "Generate cucumber"
   task :generate_cucumber do
-    Dir.chdir(RAILS_ROOT) { `ruby script/generate cucumber` }
+    Dir.chdir(RAILS_ROOT) { `ruby script/generate cucumber` unless File.directory?('features') }
   end
 end
 
